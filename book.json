@@ -1,0 +1,36 @@
+{
+    "author": "Sky Ao <aoxiaojian@ppmoney.com>",
+    "description": "积分项目资料整理和学习笔记.",
+    "extension": null,
+    "generator": "site",
+    "isbn": null,
+    "links": {
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        },
+        "sidebar": {
+            "敖小剑的gitlab": "http://git.scm.ppmoney.com/u/aoxiaojian"
+        }
+    },
+    "output": null,
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": [],
+    "title": "Leaning Score/积分项目资料整理和学习笔记",
+    "variables": {}
+}

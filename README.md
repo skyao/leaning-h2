@@ -1,2 +1,11 @@
-# leaning-h2
-Records during leaning H2 database.
+H2数据库学习笔记
+============
+
+H2数据库学习笔记.
+
+* [H2介绍](introduction/h2.md)
+
+内容陆续添加中......
+
+
+
