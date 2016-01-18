@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="EmbeddedH2"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<class>com.github.skyao.h2demo.entity.AddressEntity</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<!-- // 这里可以为H2选择两种存储模式 // 1. 默认使用内存(in-momery)模式 <property name="javax.persistence.jdbc.url" 
+				value="jdbc:h2:mem:it-score;DB_CLOSE_DELAY=-1;MODE=POSTGRESQL" /> // 2. 如果你想看到测试结果(特别是在debug的时候), 
+				替换为下面的方式, H2 将保存数据到本地文件 // (~/it-score表示存储在C:\Users\yourname\it-score.mv.db) 
+				<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/it-score;MODE=POSTGRESQL" 
+				/> // 请注意jenkins通常都是使用内存/in-momery模式 // 因此请让git仓库中的代码保持in-memory模式 // 仅仅当你需要在本地机器做debug时修改此处，改用本地文件模式，debug结束后请回退，不要提交。 -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=POSTGRESQL" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported" />
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
+		</properties>
+	</persistence-unit>
+</persistence>
