@@ -12,8 +12,9 @@ module.exports = function (grunt) {
         'gitbook': {
             development: {
                 input: "./",
-                title: "Leaning Score",
-                description: "积分项目资料整理和学习笔记"
+                title: "Leaning H2",
+                description: "H2学习笔记",
+                github: "skyao/leaning-grpc"
             }
         },
         'gh-pages': {
@@ -72,6 +73,11 @@ module.exports = function (grunt) {
         'http-server',
 		'open',
 		'watch',		
+    ]);
+    grunt.registerTask('publish', [
+        'gitbook',
+		'gh-pages',
+        'clean'
     ]);
     grunt.registerTask('default', 'gitbook');
 };

@@ -1,6 +1,6 @@
 {
-    "author": "Sky Ao <aoxiaojian@ppmoney.com>",
-    "description": "积分项目资料整理和学习笔记.",
+    "author": "Sky Ao <aoxiaojian@gmail.com>",
+    "description": "This is a book about the records in leaning H2 database.",
     "extension": null,
     "generator": "site",
     "isbn": null,
@@ -13,7 +13,7 @@
             "weibo": null
         },
         "sidebar": {
-            "敖小剑的gitlab": "http://git.scm.ppmoney.com/u/aoxiaojian"
+            "Sky's Blog": "http://skyao.github.io/"
         }
     },
     "output": null,
@@ -31,6 +31,6 @@
         "paperSize": "a4"
     },
     "plugins": [],
-    "title": "Leaning Score/积分项目资料整理和学习笔记",
+    "title": "Leaning H2/H2学习笔记",
     "variables": {}
 }

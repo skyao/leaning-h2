@@ -1,23 +1,5 @@
-特性
+数据库文件设置
 ===========
-
-H2数据库支持多种连接模式和连接设置，也提供很多使用的特性，这些都是通过使用不同的数据库URL来设置。
-
-# 设置运行模式
-
-	1. 内嵌模式： 包括本地文件连接和内存数据库连接
-	2. 服务器模式：包括使用TCP和TLS连接
-	3. 混合模式
-
-# 数据库设置
-
-	1. 指定用户名和密码
-	2. 调试跟踪设置
-	3. 忽略未知设置
-	4. 兼容模式
-	5. 当虚拟机退出时不要关闭数据库
-
-# 数据库文件设置
 
 ## 文件加密
 
@@ -87,31 +69,3 @@ TODO：暂不清楚具体有那些文件访问模式，如何设置，后面再�
 范例：
 
 	jdbc:h2:zip:~/db.zip!/test
-
-# 数据库连接设置
-
-## 在连接时执行SQL
-
-可以通过下面的方式在连接到数据库时立即保存在文件中的SQl文件：
-
-	jdbc:h2:<url>;INIT=RUNSCRIPT FROM '~/create.sql'
-
-如果需要执行多个SQL文件，则可以重复多次：
-
-	jdbc:h2:file:~/sample;INIT=RUNSCRIPT FROM '~/create.sql'\;RUNSCRIPT FROM '~/populate.sql'
-
-
-## 自动重连
-
-	jdbc:h2:<url>;AUTO_RECONNECT=TRUE
-
-范例：
-
-	jdbc:h2:tcp://localhost/~/test;AUTO_RECONNECT=TRUE
-
-
-Page size	jdbc:h2:<url>;PAGE_SIZE=512
-Changing other settings	jdbc:h2:<url>;<setting>=<value>[;<setting>=<value>...]
-jdbc:h2:file:~/sample;TRACE_LEVEL_SYSTEM_OUT=3
-
-注：资料来源[官方文档--Database URL](http://h2database.com/html/features.html#database_url)
