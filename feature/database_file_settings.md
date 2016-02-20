@@ -14,6 +14,13 @@
     jdbc:h2:ssl://localhost/~/test;CIPHER=AES
     jdbc:h2:file:~/secure;CIPHER=AES
 
+### 创建一个文件加密的新数据库
+
+默认，如果数据库不存在会自动创建一个新的数据库。为了创建一个加密的数据库，连接它就像它好像已经存在一样。
+
+
+### 连接到加密数据库
+
 连接到一个加密后的数据库， 除了设置CIPHER=AES外，还需要在密码字段中设置文件密码，在用户密码前。在文件密码和用户密码之间用一个空格简单分割，因此文件密码是不容许包含空格的。文件密码和用户密码都是大小写敏感。
 
 这里是连接到加密数据库的例子，java代码如下：
@@ -28,7 +35,13 @@ conn = DriverManager.getConnection(url, user, pwds);
 
 注意pwds的格式，空格分开，前面是文件密码，后面是用户密码。
 
-TODO：文件密码是哪里设置的？猜测是第一次创建数据库时使用这里的文件密码，之后就依靠这个密码继续访问。
+> TODO：文件密码是哪里设置的？猜测是第一次创建数据库时使用这里的文件密码，之后就依靠这个密码继续访问。
+
+### 加密或者解密数据库
+
+为了加密一个已经存在的数据库，可以使用ChangeFileEncryption工具。这个工作也同样用于解密数据库，或者修改文件加密的密钥。这个工作在H2的console上的工具区中可以得到，或者你可以在命令行运行它。下面的命令行将加密user home目录下的test数据库，使用文件密码filepwd和AES加密算法：
+
+> java -cp h2*.jar org.h2.tools.ChangeFileEncryption -dir ~ -db test -cipher AES -encrypt filepwd
 
 ## 文件加锁方法
 
@@ -56,9 +69,16 @@ H2可以对数据库文件做加锁操作，指定FILE_LOCK：
 
 ## 定制文件访问模式
 
-TODO：暂不清楚具体有那些文件访问模式，如何设置，后面再细看。格式如下：
+通常，数据库用rw(读写)模式打开数据库文件(除非是只读数据库，那会使用r/只读模式)。为了用只读模式打开一个文件不是只读的数据库，需要设置ACCESS_MODE_DATA=r。也支持rws和rwd。这个设置必须在数据库URL中指明：
 
-	jdbc:h2:<url>;ACCESS_MODE_DATA=rws
+	String url = "jdbc:h2:~/test;ACCESS_MODE_DATA=rws";
+
+rwd和rws的含义：
+
+- rwd: 文件内容的每个更新都被同步写入底层存储设备.
+- rws: 在rwd的基础上，metadata的每个更新都被同步写入.
+
+具体内容参考 [H2文档 Durability Problems](http://h2database.com/html/advanced.html#durability_problems).
 
 ## 将数据库存放在zip文件中
 
