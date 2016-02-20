@@ -1,117 +1,33 @@
 特性
 ===========
 
+> 注：中文翻译版本，原文来自[H2官方文档--Database URL](http://h2database.com/html/features.html#database_url)
+
 H2数据库支持多种连接模式和连接设置，也提供很多使用的特性，这些都是通过使用不同的数据库URL来设置。
 
 # 设置运行模式
 
-	1. 内嵌模式： 包括本地文件连接和内存数据库连接
-	2. 服务器模式：包括使用TCP和TLS连接
-	3. 混合模式
+1. 内嵌模式： 包括本地文件连接和内存数据库连接
+2. 服务器模式：包括使用TCP和TLS连接
+3. 混合模式
 
 # 数据库设置
 
-	1. 指定用户名和密码
-	2. 调试跟踪设置
-	3. 忽略未知设置
-	4. 兼容模式
-	5. 当虚拟机退出时不要关闭数据库
+1. 指定用户名和密码
+2. 调试跟踪设置
+3. 忽略未知设置
+4. 兼容模式
+5. 当虚拟机退出时不要关闭数据库
 
 # 数据库文件设置
 
-## 文件加密
-
-数据库文件可以加密。H2支持AES加密算法。为了使用文件加密，需要指定加密算法（参数cipher）和连接到数据库时的文件密码（在用户密码之外）。
-
-可以对数据库文件做加密，通过在URL中指定"CIPHER=AES":
-
-	jdbc:h2:<url>;CIPHER=AES
-
-范例：
-
-    jdbc:h2:ssl://localhost/~/test;CIPHER=AES
-    jdbc:h2:file:~/secure;CIPHER=AES
-
-连接到一个加密后的数据库， 除了设置CIPHER=AES外，还需要在密码字段中设置文件密码，在用户密码前。在文件密码和用户密码之间用一个空格简单分割，因此文件密码是不容许包含空格的。文件密码和用户密码都是大小写敏感。
-
-这里是连接到加密数据库的例子，java代码如下：
-
-```java
-Class.forName("org.h2.Driver");
-String url = "jdbc:h2:~/test;CIPHER=AES";
-String user = "sa";
-String pwds = "filepwd userpwd";
-conn = DriverManager.getConnection(url, user, pwds);
-```
-
-注意pwds的格式，空格分开，前面是文件密码，后面是用户密码。
-
-TODO：文件密码是哪里设置的？猜测是第一次创建数据库时使用这里的文件密码，之后就依靠这个密码继续访问。
-
-## 文件加锁方法
-
-H2可以对数据库文件做加锁操作，指定FILE_LOCK：
-
-	jdbc:h2:<url>;FILE_LOCK={FILE|SOCKET|FS|NO}
-
-范例：
-
-	jdbc:h2:file:~/private;CIPHER=AES;FILE_LOCK=SOCKET
-
-细节见[文档](http://h2database.com/html/features.html#database_file_locking)。
-
-## 仅当数据库存在时打开
-
-默认情况下，当URL指定的数据库文件不存在时，H2会自动创建文件并打开该数据库。可以通过设置IFEXISTS=TRUE来改变这个行为，仅当指定数据库已经存在时才打开：
-
-	jdbc:h2:<url>;IFEXISTS=TRUE
-
-范例：
-
-	jdbc:h2:file:~/sample;IFEXISTS=TRUE
-
-细节见[文档](http://h2database.com/html/features.html#database_only_if_exists)。
-
-## 定制文件访问模式
-
-TODO：暂不清楚具体有那些文件访问模式，如何设置，后面再细看。格式如下：
-
-	jdbc:h2:<url>;ACCESS_MODE_DATA=rws
-
-## 将数据库存放在zip文件中
-
-可以通过这个方式将数据库文件存放在一个zip文件中，虽然不清楚何时适合如此做，格式如下：
-
-	jdbc:h2:zip:<zipFileName>!/<databaseName>
-
-范例：
-
-	jdbc:h2:zip:~/db.zip!/test
+1. 文件加密
+2. 文件加锁方法
+3. 定制文件访问模式
+4. 将数据库存放在zip文件中
 
 # 数据库连接设置
 
-## 在连接时执行SQL
+1. 在连接时执行SQL
+2. 自动重连
 
-可以通过下面的方式在连接到数据库时立即保存在文件中的SQl文件：
-
-	jdbc:h2:<url>;INIT=RUNSCRIPT FROM '~/create.sql'
-
-如果需要执行多个SQL文件，则可以重复多次：
-
-	jdbc:h2:file:~/sample;INIT=RUNSCRIPT FROM '~/create.sql'\;RUNSCRIPT FROM '~/populate.sql'
-
-
-## 自动重连
-
-	jdbc:h2:<url>;AUTO_RECONNECT=TRUE
-
-范例：
-
-	jdbc:h2:tcp://localhost/~/test;AUTO_RECONNECT=TRUE
-
-
-Page size	jdbc:h2:<url>;PAGE_SIZE=512
-Changing other settings	jdbc:h2:<url>;<setting>=<value>[;<setting>=<value>...]
-jdbc:h2:file:~/sample;TRACE_LEVEL_SYSTEM_OUT=3
-
-注：资料来源[官方文档--Database URL](http://h2database.com/html/features.html#database_url)

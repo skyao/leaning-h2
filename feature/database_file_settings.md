@@ -40,7 +40,7 @@ H2可以对数据库文件做加锁操作，指定FILE_LOCK：
 
 	jdbc:h2:file:~/private;CIPHER=AES;FILE_LOCK=SOCKET
 
-细节见[文档](http://h2database.com/html/features.html#database_file_locking)。
+细节见[H2文档 database_file_locking](http://h2database.com/html/features.html#database_file_locking)。
 
 ## 仅当数据库存在时打开
 

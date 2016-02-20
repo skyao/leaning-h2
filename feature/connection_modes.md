@@ -1,6 +1,8 @@
 连接模式
 =========
 
+> 注：中文翻译版本，原文来自[H2官网文档---Connection Modes](http://h2database.com/html/features.html#connection_modes).
+
 H2支持三种连接模式：
 
 - 内嵌模式：本地连接，使用JDBC
@@ -27,4 +29,3 @@ H2支持三种连接模式：
 
 ![](http://h2database.com/html/images/connection-mode-mixed-2.png)
 
- 注：资料来源[官网文档---Connection Modes](http://h2database.com/html/features.html#connection_modes)

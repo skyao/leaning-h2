@@ -1,9 +1,15 @@
 H2数据库介绍
 ==========
 
-H2 是一个Java编写的SQL数据库.
+# 前言
+
+> H2的中文资料不多，索性直接把官网资料中基本感兴趣的部分翻译成中文。
 
 # H2特性
+
+> 注：中文翻译版本，原文来自[H2官方文档--Feature List](http://h2database.com/html/features.html)
+
+H2 是一个Java编写的SQL数据库.
 
 H2的主要特性有:
 
@@ -84,4 +90,3 @@ SQL 支持：
 - 提供标准JDBC支持，构建DataSource/Connection等
 - 使得数据库访问层的代码可以在H2的基础上运行/测试/验证
 
-注：资料来源[官方文档--Feature List](http://h2database.com/html/features.html)
