@@ -72,21 +72,5 @@ SQL 支持：
 - Uses a checksum for each record and log entry for data integrity
 - Well tested (high code coverage, randomized stress tests)
 
-# 备注
 
-以上特性用，我们最关注的几点是：
-
-- java编写
-- ++支持标准SQL，JDBC API++
-- **支持嵌入式模式**和服务器模式，支持集群
-- **兼容模式，适用于IBM DB2, Apache Derby, HSQLDB, MS SQL Server, MySQL, Oracle, and PostgreSQL**
-- ++小巧(jar文件大概1.5 MB大小), 内存要求低++
-- 提供基于浏览器的控制台应用(翻译成多个语言)，支持自动完成
-
-这几个特性，使得H2非常的适合用于数据库访问层的自动化，典型场景：
-
-- 以嵌入式模式在Java测试案例中启动
-- 模拟其他数据库如mysql/Oracle/PostgreSQL
-- 提供标准JDBC支持，构建DataSource/Connection等
-- 使得数据库访问层的代码可以在H2的基础上运行/测试/验证
 

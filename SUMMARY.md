@@ -8,3 +8,7 @@ bui# Summary
 		* [数据库设置](feature/database_settings.md)
 		* [数据库文件设置](feature/database_file_settings.md)
 		* [数据库连接设置](feature/database_connection_settings.md)
+* [H2在测试中的使用](test/usage_in_test.md)
+	* [Demo](test/demo.md)
+	* [纯JDBC](test/pure_jdbc.md)
+	* [OpenJPA](test/openjpa.md)
