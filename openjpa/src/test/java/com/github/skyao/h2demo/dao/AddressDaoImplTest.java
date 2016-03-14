@@ -27,10 +27,10 @@ public class AddressDaoImplTest extends AbstractH2DaoTest {
         addressEntity.setId(100);
         addressEntity.setName("sky");
         int id = dao.save(addressEntity);
-        //System.out.println(addressEntity.toString());
+        System.out.println("saved entity:" + addressEntity.toString());
 
         AddressEntity queryEntity = dao.query(id);
-        //System.out.println(queryEntity.toString());
+        System.out.println("get entity:" + queryEntity.toString());
         assertThat(queryEntity).isEqualToComparingFieldByField(addressEntity);
     }
 }

@@ -36,6 +36,6 @@ public class AddressTest extends H2TestBase {
         assertThat(id).isEqualTo(1);
         assertThat(name).isEqualTo("Miller");
 
-        //System.out.println("id=" + id + ", name=" + name);
+        System.out.println("get data from database: id=" + id + ", name=" + name);
     }
 }
