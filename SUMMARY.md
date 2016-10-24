@@ -1,4 +1,4 @@
-bui# Summary
+# Summary
 
 * [H2介绍](introduction/h2.md)
 * [H2特性(官网文档翻译)](feature/feature_list.md)
@@ -12,3 +12,4 @@ bui# Summary
 	* [Demo](test/demo.md)
 	* [纯JDBC](test/pure_jdbc.md)
 	* [OpenJPA](test/openjpa.md)
+* [全文标签总览](tags.md)
