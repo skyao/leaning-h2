@@ -1,7 +1,7 @@
 Demo
 ========
 
-为了展示H2的测试，提供了一个代码Demo，地址在https://github.com/skyao/leaning-h2/。
+为了展示H2的测试，提供了一个代码Demo，地址在https://github.com/skyao/leaning-h2/
 
 请在clone仓库之后，切换到demo branch。
 
